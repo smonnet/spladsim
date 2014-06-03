@@ -4,6 +4,10 @@
 	<classpathentry kind="lib" path="lib/djep-1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/jep-2.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/lip6peersim-1.0.5.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/System/Library/Frameworks/JavaVM.framework/Versions/A"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

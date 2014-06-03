@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.target.gnu.exe.0/DYLD_LIBRARY_PATH/delimiter=\:
+environment/project/cdt.managedbuild.target.gnu.exe.0/DYLD_LIBRARY_PATH/operation=append
+environment/project/cdt.managedbuild.target.gnu.exe.0/DYLD_LIBRARY_PATH/value=\:/opt/simgrid/lib\:/opt/simgrid/java
+environment/project/cdt.managedbuild.target.gnu.exe.0/append=true
+environment/project/cdt.managedbuild.target.gnu.exe.0/appendContributed=true
+environment/project/cdt.managedbuild.target.gnu.exe.1/DYLD_LIBRARY_PATH/delimiter=\:
+environment/project/cdt.managedbuild.target.gnu.exe.1/DYLD_LIBRARY_PATH/operation=append
+environment/project/cdt.managedbuild.target.gnu.exe.1/DYLD_LIBRARY_PATH/value=\:/opt/simgrid/lib\:/opt/simgrid/java
+environment/project/cdt.managedbuild.target.gnu.exe.1/append=true
+environment/project/cdt.managedbuild.target.gnu.exe.1/appendContributed=true

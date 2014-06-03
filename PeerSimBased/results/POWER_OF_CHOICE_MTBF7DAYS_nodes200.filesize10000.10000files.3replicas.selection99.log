@@ -1,0 +1,3 @@
+# line format:
+# simulation time(s	 <# remaining files><#files with 1 copies>	<#files with 2 copies>	<network size>	#of node of type 0 	<min storage size>	<max storage size>	<blocs mean age>
+0	10000	0	0	200	200		146	152	0

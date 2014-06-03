@@ -378,62 +378,8 @@ public class MSPastryDamageObserver implements Control {
         }
     }
 
-    private MSPastryProtocolImpl get(int index) {
-        return ((MSPastryProtocolImpl) Network.get(index).getProtocol(pid));
-    }
 
-    /*
-     * this is for the session times, it isn't useful
-     */
-    private void writeSessionTimes(FileWriter results) throws Exception {
-        /*int sz=Network.size();    
-         HashMap repartition=new HashMap();
-         PastProtocol past;
-         Long time;
-         Integer count;
-         for(int i=0;i<sz;i++){
-         time=new Long(get(i).getStorageOverlay().getSessionTime());
-         if(Network.get(i).isUp()) time=CommonState.getTime()-time;
-         if(!repartition.containsKey(time)){
-         repartition.put(time,new Integer(1));
-         }else{  
-         count=(Integer)repartition.remove(time);
-         repartition.put(time,count+1);
-         }
-         }
-         Iterator iter=repartition.keySet().iterator();
-         long sum,total;
-         sum=0;
-         total=0;
-         results.write("\n");
-         while(iter.hasNext()){
-         time=(Long)iter.next();
-         count=(Integer)repartition.get(time);
-         sum+=time*count;
-         total+=count;
-         results.write(time+" "+count+"\n");
-         }
-         System.out.println("Average="+(sum/total)+" total= "+total);*/
-    }
 
-    private double percentage(int total, int fraction) {
-        double dfraction = (new Integer(fraction)).doubleValue();
-        double dtotal = (new Integer(total)).doubleValue();
-        return fraction * 100 / total;
-
-    }
-
-    private static void paste(Object o) {
-        if (MSPastryCommonConfig.PASTLOG) {
-            System.err.println(o);
-        }
-    }
-
-    private static void pasto(Object o) {
-        if (MSPastryCommonConfig.PASTLOG) {
-            System.out.println(o);
-        }
-    }
   
 } // enf of class
 //______________________________________________________________________________________________
