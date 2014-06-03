@@ -1,4 +1,4 @@
-package test;
+package spladsim;
 
 import org.simgrid.msg.*;
 

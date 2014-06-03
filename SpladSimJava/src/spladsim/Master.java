@@ -1,4 +1,4 @@
-package test;
+package spladsim;
 import org.simgrid.msg.*;
 public class Master extends org.simgrid.msg.Process {
     public Master(Host host, String name, String[]args) { // mandatory constructor
