@@ -6,6 +6,7 @@
 package spladsim;
 
 import org.simgrid.msg.Host;
+import org.simgrid.msg.Msg;
 import org.simgrid.msg.MsgException;
 import org.simgrid.msg.Process;
 
@@ -21,8 +22,9 @@ public class SpladObserver extends Process {
 	
 	@Override
 	public void main(String[] arg0) throws MsgException {
-		// TODO Auto-generated method stub
-
+		
+		
+		Msg.info("leaving - BYE");
 	}
 
 }

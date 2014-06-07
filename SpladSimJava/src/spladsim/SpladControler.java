@@ -1,6 +1,6 @@
 /**
- * This class is the maestro of the simulation. It is in charge of controlling
- * the environment, like injecting failures or emulate users activity. 
+ * This class in charge of controlling
+ * the environment, like failure injection or users activity emulation. 
  */
 package spladsim;
 
@@ -19,6 +19,16 @@ public class SpladControler extends Process {
 	
 	@Override
 	public void main(String[] arg0) throws MsgException {
-		Msg.info("Splad::controler started");
+		// initializing simulation
+		GlobalKnowledge.init(new Integer(arg0[0]).intValue());
+		// letting nodes register 
+		this.waitFor(2);
+		Msg.info("There are " + GlobalKnowledge.ring.size() + 
+				" nodes registered in the ring after init");
+		GlobalKnowledge.ring.print();
+		Msg.info("Adding initial data");
+		
+		
+		Msg.info("leaving - BYE");
 	}
 }

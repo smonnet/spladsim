@@ -15,7 +15,7 @@ import org.simgrid.msg.*;
  */
 public class SpladNode extends org.simgrid.msg.Process {
 
-	BigInteger id;	
+	BigInteger uid;
 
 	public SpladNode(Host host, String name, String[]args) { // Mandatory: this constructor is
 		super(host,name,args); // used internally
@@ -23,8 +23,12 @@ public class SpladNode extends org.simgrid.msg.Process {
 
 	@Override
 	public void main(String[] arg0) throws MsgException {
-
-		// TODO Auto-generated method stub
+		this.waitFor(1);
+		GlobalKnowledge.register(this);
+		Msg.info(uid + "::registered");
+		this.waitFor(2);
+		
+		
+		Msg.info(uid + "::leaving - BYE");
 	}
-
 }

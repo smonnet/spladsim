@@ -3,6 +3,39 @@
 <platform version="3">
 <!-- The master process (with some arguments) -->
 <process host="parapide-1.rennes.grid5000.fr" function="spladsim.SpladControler">
+<argument value="42"/> <!-- Simulation seed -->
+</process>
+<process host="parapide-1.rennes.grid5000.fr" function="spladsim.SpladObserver">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-2.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-3.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-4.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-5.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-6.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-7.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-8.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-9.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-10.rennes.grid5000.fr" function="spladsim.SpladNode">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+<process host="parapide-11.rennes.grid5000.fr" function="spladsim.SpladNode">
 <!--<argument value=""/> --><!-- Number of tasks -->
 </process>
 </platform>
