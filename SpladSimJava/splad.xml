@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid.dtd">
+<platform version="3">
+<!-- The master process (with some arguments) -->
+<process host="parapide-1.rennes.grid5000.fr" function="spladsim.SpladControler">
+<!--<argument value=""/> --><!-- Number of tasks -->
+</process>
+</platform>
