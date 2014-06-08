@@ -16,18 +16,17 @@ import org.simgrid.msg.Msg;
  *
  */
 public class Configuration {
-
+	// spladsim params
 	double maintenancePeriod;
 	long selectionRange;
 	int placementPolicie;
-	
+	// application specific
 	int fileSize;
 	long nbFiles;
 	int replFactor;
-	
+	// simulation specific
 	double endTime;
 	int seed;
-	
 	double observationPeriod;
 	FileWriter gnuplotFile;
 	
@@ -36,6 +35,7 @@ public class Configuration {
 		String buf = null;
 		try {
 			properties.load(new FileInputStream(configFile));
+			Msg.info("***** ***** CONFIGURATION ***** *****");
 			
 			buf = properties.getProperty("maintenancePeriod");
 			maintenancePeriod = Double.parseDouble(buf);
@@ -68,6 +68,14 @@ public class Configuration {
 			buf = properties.getProperty("seed");
 			seed = Integer.parseInt(buf);
 			Msg.info("seed::"+seed);
+			
+			buf = properties.getProperty("observationPeriod");
+			observationPeriod = Double.parseDouble(buf);
+			Msg.info("observationPeriod::"+observationPeriod);
+			
+			buf = properties.getProperty("gnuplotFile");
+			gnuplotFile = new FileWriter(new File(buf));
+			Msg.info("gnuplotFile::"+buf);
 
 		} catch (IOException e) {
 			Msg.info("Error reading configuration file : " + configFile);
