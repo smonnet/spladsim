@@ -4,6 +4,8 @@
  */
 package spladsim;
 
+import java.math.BigInteger;
+
 import org.simgrid.msg.*;
 import org.simgrid.msg.Process;
 
@@ -26,6 +28,28 @@ public class SpladControler extends Process {
 		Msg.info("There are " + GlobalKnowledge.ring.size() + 
 				" nodes registered in the ring after init");
 		GlobalKnowledge.ring.print();
+		
+		BigInteger id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		id = GlobalKnowledge.genUID();
+		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
+		
+		
+		
 		Msg.info("Adding initial data");
 		
 		

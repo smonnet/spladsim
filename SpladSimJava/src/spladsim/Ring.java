@@ -6,9 +6,8 @@
 package spladsim;
 
 import java.math.BigInteger;
-import java.util.Arrays;
-
 import org.simgrid.msg.Msg;
+
 
 /**
  * @author smonnet
@@ -17,11 +16,15 @@ import org.simgrid.msg.Msg;
 public class Ring {
 	RingElement head;
 	long eltNum;
+	private static BigInteger half, max;
+	
 	public Ring() {
 		eltNum = 0;
 		head = new RingElement();
 		head.next = head;
 		head.prev = head;
+		max = new BigInteger("2").pow(GlobalKnowledge.nbBit).subtract(BigInteger.ONE);
+		half = max.divide(new BigInteger("2"));
 	}
 	
 	/* returns the node associated with identifier id */
@@ -58,9 +61,43 @@ public class Ring {
 		return null;
 	}
 	
+	public static BigInteger fastdistance(BigInteger a, BigInteger b) {
+		int comp = a.compareTo(b);
+		if (comp == 0)
+			return BigInteger.ZERO;
+		BigInteger c;
+		if (comp > 0) {
+			c = a.subtract(b);
+		} else
+			c = b.subtract(a);
+		return (c.compareTo(half) > 0) ? max.subtract(c) : c;
+	}
+	
+	public BigInteger getRoot(BigInteger dataUID) {
+		RingElement re = head;
+		re.next = head.next;
+		BigInteger f,b;
+		while((re.next!=head) && (dataUID.compareTo(re.next.node.uid)==1)) {
+			re.next = re.next.next;
+		}
+		if((re.next == head.next)||(re.next == head)) { // ID is greater that the greatest or smaller than the smallest
+			f = fastdistance(head.next.node.uid,dataUID);
+			b = fastdistance(head.prev.node.uid,dataUID);
+		} else { // normal case
+			f = fastdistance(re.next.node.uid,dataUID);
+			b = fastdistance(re.next.prev.node.uid,dataUID);
+		}
+		if(f.compareTo(b)>0) {
+			return head.prev.node.uid;
+		} else {
+			return head.next.node.uid;
+		}
+	}
+	
 	public boolean isEmpty() {
 		return (eltNum==0);
 	}
+	
 	
 	public long size() {
 		return eltNum;

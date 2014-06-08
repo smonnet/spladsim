@@ -26,11 +26,16 @@ public final class GlobalKnowledge {
 		rand = new Random(config.seed);
 		ring = new Ring();
 	}
+	
 	public static BigInteger register(SpladNode spladNode) {
 		BigInteger id = new BigInteger(nbBit, rand);
 		spladNode.uid = id;
 		ring.insert(spladNode);
 		return id;
+	}
+	
+	public static BigInteger genUID() {
+		return new BigInteger(nbBit, rand);
 	}
 }
 
