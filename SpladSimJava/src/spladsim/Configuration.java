@@ -3,7 +3,9 @@
  */
 package spladsim;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -15,8 +17,20 @@ import org.simgrid.msg.Msg;
  */
 public class Configuration {
 
+	double maintenancePeriod;
+	long selectionRange;
+	int placementPolicie;
+	
+	int fileSize;
+	long nbFiles;
+	int rf;
+	
+	double endTime;
 	int seed;
-
+	
+	double observationPeriod;
+	FileWriter gnuplotFile;
+	
 	public Configuration(String configFile) {
 		Properties properties = new Properties();
 		String buf = null;
