@@ -15,14 +15,15 @@ import org.simgrid.msg.Msg;
  *
  */
 public final class GlobalKnowledge {
+	public static Configuration config;
 	public static final int nbBit = 128;
 	public static Ring ring;
 	public static Random rand;
 
 	/* called by the controller to initialize some variables */
-	public static void init(int seed) {
-		Msg.info("GlobalKnowledge simulation seed: "+ seed);
-		rand = new Random(seed);
+	public static void init(String configFile) {
+		config = new Configuration(configFile);
+		rand = new Random(config.seed);
 		ring = new Ring();
 	}
 	public static BigInteger register(SpladNode spladNode) {

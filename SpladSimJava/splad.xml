@@ -3,7 +3,7 @@
 <platform version="3">
 <!-- The master process (with some arguments) -->
 <process host="parapide-1.rennes.grid5000.fr" function="spladsim.SpladControler">
-<argument value="42"/> <!-- Simulation seed -->
+<argument value="splad.properties"/> <!-- simulation configuration file (java property file) -->
 </process>
 <process host="parapide-1.rennes.grid5000.fr" function="spladsim.SpladObserver">
 <!--<argument value=""/> --><!-- Number of tasks -->

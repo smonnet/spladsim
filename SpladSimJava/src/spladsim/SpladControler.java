@@ -20,7 +20,7 @@ public class SpladControler extends Process {
 	@Override
 	public void main(String[] arg0) throws MsgException {
 		// initializing simulation
-		GlobalKnowledge.init(new Integer(arg0[0]).intValue());
+		GlobalKnowledge.init(arg0[0]);
 		// letting nodes register 
 		this.waitFor(2);
 		Msg.info("There are " + GlobalKnowledge.ring.size() + 
