@@ -3,6 +3,7 @@
 *.ko
 *.obj
 *.elf
+*.class
 
 # Libraries
 *.lib
@@ -21,3 +22,9 @@
 *.i*86
 *.x86_64
 *.hex
+
+# temp files
+*~
+
+# eclipse stuff 
+.metadata*
