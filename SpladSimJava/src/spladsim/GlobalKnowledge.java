@@ -39,7 +39,7 @@ public final class GlobalKnowledge {
 		Msg.info("Less charged policy instanciated");
 		break;
 		case 2: placementPolicy = new PowerOfChoice();
-		Msg.info("Power og choice policy instanciated");
+		Msg.info("Power of choice policy instanciated");
 		break;
 		default: Msg.info(" XXXX Wrong placement policy choice in property file XXXX ");
 			break;

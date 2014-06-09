@@ -43,8 +43,10 @@ public class Configuration {
 			
 			buf = properties.getProperty("selectionRange");
 			selectionRange = Integer.parseInt(buf);
-			if(selectionRange%2==0) // Selection range should be odd (contains the root noe)
+			if(selectionRange%2==0) { // Selection range should be odd (contains the root noe)
 				selectionRange=selectionRange+1;
+				Msg.info("WARNING -- the given selection range was even, it has to be odd");
+			}
 			Msg.info("selectionRange::"+selectionRange);
 
 			buf = properties.getProperty("placementPolicie");
@@ -61,6 +63,10 @@ public class Configuration {
 			
 			buf = properties.getProperty("replFactor");
 			replFactor = Integer.parseInt(buf);
+			if(replFactor > selectionRange) {
+				replFactor = selectionRange;
+				Msg.info("WARNING -- the given replication factor was greater then the selection range");
+			}
 			Msg.info("replFactor::"+replFactor);
 			
 			buf = properties.getProperty("endTime");
