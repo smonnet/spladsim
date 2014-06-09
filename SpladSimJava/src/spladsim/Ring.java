@@ -15,11 +15,11 @@ import org.simgrid.msg.Msg;
  */
 public class Ring {
 	RingElement head;
-	long eltNum;
+	long size;
 	private static BigInteger half, max;
 	
 	public Ring() {
-		eltNum = 0;
+		size = 0;
 		head = new RingElement();
 		head.next = head;
 		head.prev = head;
@@ -39,14 +39,24 @@ public class Ring {
 		re.prev=re.next.prev;
 		re.next.prev=re;
 		re.prev.next=re;
-		eltNum++;
+		size++;
 	}
 	
 	/* removes the node associated with identifier id 
-	 * returns true if the node hes been found and removed */
+	 * returns true if the node has been found and removed */
 	public boolean remove(BigInteger id) {
-		
-		return false;
+		RingElement re = head.next;
+		while((re!=head) && (id.compareTo(re.node.uid)!=0)) {
+			re = re.next;
+		}
+		if(re==head) {
+			return false;
+		} else {
+			re.prev.next=re.next;
+			re.next.prev=re.prev;
+			size--;
+			return true;
+		}
 	}
 	
 	/* return an array of the n closest neighbors - usefull to get leafsets */
@@ -116,13 +126,22 @@ public class Ring {
 		}
 	}
 	
+	public SpladNode getRandomNode() {
+		long index = Math.round(GlobalKnowledge.rand.nextDouble() * (size-1));
+		RingElement elt=head.next; 
+		for(long i=0; i<index; i++) {
+			elt=elt.next;
+		}
+		return elt.node;
+	}
+	
 	public boolean isEmpty() {
-		return (eltNum==0);
+		return (size==0);
 	}
 	
 	
 	public long size() {
-		return eltNum;
+		return size;
 	}
 	
 	public void print() {

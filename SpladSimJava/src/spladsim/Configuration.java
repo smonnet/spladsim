@@ -24,6 +24,7 @@ public class Configuration {
 	long fileSize;
 	long nbFiles;
 	int replFactor;
+	double mtbf;
 	// simulation specific
 	double endTime;
 	int seed;
@@ -68,6 +69,10 @@ public class Configuration {
 				Msg.info("WARNING -- the given replication factor was greater then the selection range");
 			}
 			Msg.info("replFactor::"+replFactor);
+			
+			buf = properties.getProperty("mtbf");
+			mtbf = Double.parseDouble(buf);
+			Msg.info("mtbf::"+mtbf);
 			
 			buf = properties.getProperty("endTime");
 			endTime = Double.parseDouble(buf);

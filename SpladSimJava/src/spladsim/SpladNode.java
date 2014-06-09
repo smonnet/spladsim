@@ -34,6 +34,21 @@ public class SpladNode extends org.simgrid.msg.Process {
 		GlobalKnowledge.register(this);
 		this.waitFor(2);
 		Msg.info("Storing " + dataStore.size() + " data blocks");
-		
+		this.waitFor(100000000);
+		Msg.info("bye");
+	}
+
+	public void clearData() {
+		rootOf = null;
+		Set<BigInteger> keys = dataStore.keySet();
+		Iterator<BigInteger> it = keys.iterator();
+		while (it.hasNext()){ // the key comes from the local store but the updated data is the global one, for observation purpose
+		   BigInteger key = it.next();
+		   Data data = GlobalKnowledge.storedData.get(key);
+		   data.storers.remove(uid);
+		   if(data.storers.isEmpty()) {
+			   GlobalKnowledge.storedData.remove(key);
+		   }
+		}
 	}
 }
