@@ -48,8 +48,6 @@ public class SpladControler extends Process {
 		id = GlobalKnowledge.genUID();
 		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
 		
-		
-		
 		Msg.info("Adding initial data");
 		
 		

@@ -74,23 +74,27 @@ public class Ring {
 	}
 	
 	public BigInteger getRoot(BigInteger dataUID) {
-		RingElement re = head;
-		re.next = head.next;
+		RingElement re = head.next;
 		BigInteger f,b;
-		while((re.next!=head) && (dataUID.compareTo(re.next.node.uid)==1)) {
-			re.next = re.next.next;
+		while((re!=head) && (dataUID.compareTo(re.node.uid)==1)) {
+			re = re.next;
 		}
-		if((re.next == head.next)||(re.next == head)) { // ID is greater that the greatest or smaller than the smallest
+			if((re == head.next)||(re == head)) { // ID is greater that the greatest or smaller than the smallest
 			f = fastdistance(head.next.node.uid,dataUID);
 			b = fastdistance(head.prev.node.uid,dataUID);
+			if(f.compareTo(b)>0) {
+				return head.prev.node.uid;
+			} else {
+				return head.next.node.uid;
+			}
 		} else { // normal case
-			f = fastdistance(re.next.node.uid,dataUID);
-			b = fastdistance(re.next.prev.node.uid,dataUID);
-		}
-		if(f.compareTo(b)>0) {
-			return head.prev.node.uid;
-		} else {
-			return head.next.node.uid;
+			f = fastdistance(re.node.uid,dataUID);
+			b = fastdistance(re.prev.node.uid,dataUID);
+			if(f.compareTo(b)>0) {
+				return re.prev.node.uid;
+			} else {
+				return re.node.uid;
+			}
 		}
 	}
 	
