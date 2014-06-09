@@ -27,12 +27,6 @@ public class Ring {
 		half = max.divide(new BigInteger("2"));
 	}
 	
-	/* returns the node associated with identifier id */
-	public SpladNode get(BigInteger id) {
-		
-		return null;
-	}
-	
 	/* inserts the given node into the sorted ring - placed according to its id */
 	public void insert(SpladNode node) {
 		RingElement re = new RingElement();
@@ -56,9 +50,33 @@ public class Ring {
 	}
 	
 	/* return an array of the n closest neighbors - usefull to get leafsets */
-	public SpladNode[] getClosestNeighbors(long n) {
-		
-		return null;
+	public SpladNode[] getSelectionRange(int n, SpladNode node) {
+		RingElement re = head.next;
+		RingElement f,b;
+		int n2 = (n-1)/2;
+		SpladNode[] result = new SpladNode[2*n2+1];
+		while((re!=head) && (node.uid.compareTo(re.node.uid)!=0)) {
+			re = re.next;
+		}
+		if (node.uid.compareTo(re.node.uid)==0) {
+			result[n2]=re.node;
+			f=re.next;
+			b=re.prev;
+			for (int i = 1; i<=n2; i++) {
+				if(f==head)
+					f=f.next;
+				if(b==head)
+					b=b.prev;
+				result[n2+i]=f.node;
+				result[n2-i]=b.node;
+				f=f.next;
+				b=b.prev;
+			}
+			return result;
+		} else {
+			Msg.info(" XXXX Error Failed to find a root node in getSelectionRange XXXX ");
+			return null;
+		}
 	}
 	
 	public static BigInteger fastdistance(BigInteger a, BigInteger b) {

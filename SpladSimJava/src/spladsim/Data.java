@@ -10,14 +10,14 @@ import java.math.BigInteger;
  *
  */
 public class Data {
-	BigInteger UID;
+	BigInteger uid;
 	BigInteger[] storers;
 	BigInteger root;
 	long size = GlobalKnowledge.config.fileSize; // default value
 	int rf = GlobalKnowledge.config.replFactor; // default value
 	
 	public Data() {
-		UID = GlobalKnowledge.genUID();
+		uid = GlobalKnowledge.genUID();
 		storers = new BigInteger[rf];
 	}
 }

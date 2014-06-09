@@ -13,7 +13,9 @@ public class PowerOfChoice implements PlacementPolicy {
 
 	@Override
 	public BigInteger getStorer(BigInteger dataUID) {
-		// TODO Auto-generated method stub
+		SpladNode[] selectionRange = GlobalKnowledge.ring.getSelectionRange(GlobalKnowledge.config.selectionRange, 
+				GlobalKnowledge.nodes.get(GlobalKnowledge.ring.getRoot(dataUID)));
+		
 		return null;
 	}
 

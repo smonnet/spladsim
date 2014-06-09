@@ -18,7 +18,7 @@ import org.simgrid.msg.Msg;
 public class Configuration {
 	// spladsim params
 	double maintenancePeriod;
-	long selectionRange;
+	int selectionRange;
 	int placementPolicie;
 	// application specific
 	long fileSize;
@@ -42,7 +42,9 @@ public class Configuration {
 			Msg.info("maintenancePeriod::"+maintenancePeriod);
 			
 			buf = properties.getProperty("selectionRange");
-			selectionRange = Long.parseLong(buf);
+			selectionRange = Integer.parseInt(buf);
+			if(selectionRange%2==0) // Selection range should be odd (contains the root noe)
+				selectionRange=selectionRange+1;
 			Msg.info("selectionRange::"+selectionRange);
 
 			buf = properties.getProperty("placementPolicie");

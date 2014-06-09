@@ -7,6 +7,8 @@ package spladsim;
 
 import java.math.BigInteger;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.simgrid.msg.*;
 
@@ -22,16 +24,16 @@ public class SpladNode extends org.simgrid.msg.Process {
 
 	public SpladNode(Host host, String name, String[]args) { // Mandatory: this constructor is
 		super(host,name,args); // used internally
+		dataStore = new HashMap<BigInteger,Data>();
+		rootOf = new HashMap<BigInteger,Data>();
 	}
 
 	@Override
 	public void main(String[] arg0) throws MsgException {
 		this.waitFor(1);
 		GlobalKnowledge.register(this);
-		Msg.info(uid + "::registered");
 		this.waitFor(2);
+		Msg.info("Storing " + dataStore.size() + " data blocks");
 		
-		
-		Msg.info(uid + "::leaving - BYE");
 	}
 }

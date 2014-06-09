@@ -31,8 +31,16 @@ public class SpladControler extends Process {
 		Msg.info("Adding initial data...");
 		for(long i=0; i<GlobalKnowledge.config.nbFiles; i++) {
 			Data data = new Data();
+			data.root = GlobalKnowledge.ring.getRoot(data.uid);
+			GlobalKnowledge.nodes.get(data.root).rootOf.put(data.uid, data);
+			for(int j=0; j<data.rf; j++) {
+				data.storers[j] = GlobalKnowledge.placementPolicy.getStorer(data.uid);
+				GlobalKnowledge.nodes.get(data.storers[j]).dataStore.put(data.uid, data);
+			}
+			
+			GlobalKnowledge.storedData.put(data.uid, data);		
 		}
-		
+		Msg.info("There are " + GlobalKnowledge.storedData.size() + " pieces of data in the ring");
 		Msg.info("leaving - BYE");
 	}
 }
