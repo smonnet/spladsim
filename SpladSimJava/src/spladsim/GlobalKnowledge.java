@@ -6,6 +6,7 @@
 package spladsim;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.Random;
 
 import org.simgrid.msg.Msg;
@@ -19,6 +20,7 @@ public final class GlobalKnowledge {
 	public static final int nbBit = 128;
 	public static Ring ring;
 	public static Random rand;
+	public static HashMap<BigInteger,Data> StoredData;
 
 	/* called by the controller to initialize some variables */
 	public static void init(String configFile) {

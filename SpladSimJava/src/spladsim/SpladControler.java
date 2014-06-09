@@ -27,29 +27,11 @@ public class SpladControler extends Process {
 		this.waitFor(2);
 		Msg.info("There are " + GlobalKnowledge.ring.size() + 
 				" nodes registered in the ring after init");
-		GlobalKnowledge.ring.print();
-		
-		BigInteger id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		id = GlobalKnowledge.genUID();
-		Msg.info("Testing getRoot with " + id + " -- Root is " + GlobalKnowledge.ring.getRoot(id));
-		
-		Msg.info("Adding initial data");
-		
+		GlobalKnowledge.ring.print();	
+		Msg.info("Adding initial data...");
+		for(long i=0; i<GlobalKnowledge.config.nbFiles; i++) {
+			Data data = new Data();
+		}
 		
 		Msg.info("leaving - BYE");
 	}

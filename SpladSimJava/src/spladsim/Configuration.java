@@ -21,7 +21,7 @@ public class Configuration {
 	long selectionRange;
 	int placementPolicie;
 	// application specific
-	int fileSize;
+	long fileSize;
 	long nbFiles;
 	int replFactor;
 	// simulation specific
@@ -50,7 +50,7 @@ public class Configuration {
 			Msg.info("placementPolicie::"+placementPolicie);
 			
 			buf = properties.getProperty("fileSize");
-			fileSize = Integer.parseInt(buf);
+			fileSize = Long.parseLong(buf);
 			Msg.info("fileSize::"+fileSize);
 			
 			buf = properties.getProperty("nbFiles");

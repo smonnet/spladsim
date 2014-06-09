@@ -6,6 +6,7 @@
 package spladsim;
 
 import java.math.BigInteger;
+import java.util.HashMap;
 
 import org.simgrid.msg.*;
 
@@ -16,6 +17,8 @@ import org.simgrid.msg.*;
 public class SpladNode extends org.simgrid.msg.Process {
 
 	BigInteger uid;
+	HashMap<BigInteger,Data> dataStore;
+	HashMap<BigInteger,Data> rootOf;
 
 	public SpladNode(Host host, String name, String[]args) { // Mandatory: this constructor is
 		super(host,name,args); // used internally
