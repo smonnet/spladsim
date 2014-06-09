@@ -37,6 +37,7 @@ public class SpladControler extends Process {
 			data.root = GlobalKnowledge.ring.getRoot(data.uid);
 			GlobalKnowledge.nodes.get(data.root).rootOf.put(data.uid, data);
 			for(int j=0; j<data.rf; j++) {
+				Msg.info("storing replica "+j+" for data "+data.uid);
 				data.storers.add(GlobalKnowledge.placementPolicy.getStorer(data.uid));
 			}
 			Iterator<BigInteger> it = data.storers.iterator();
@@ -59,8 +60,8 @@ public class SpladControler extends Process {
 			node.clearData();
 			GlobalKnowledge.nodes.remove(node.uid);
 			GlobalKnowledge.ring.remove(node.uid);
-			node.kill();
-			Msg.info("node " + node.uid + " dies " + GlobalKnowledge.nodes.size() + " nodes left");
+			Msg.info("node " + node.uid + " dies ");
+			node.restart();
 			globalMTBF = GlobalKnowledge.config.mtbf / GlobalKnowledge.ring.size();
 		}
 		
@@ -68,7 +69,7 @@ public class SpladControler extends Process {
 	}
 	
 	/**
-     * Returns the next time point.
+     * 
      */
     public double getNext() {
         return Math.floor(-Math.log(1 - GlobalKnowledge.rand.nextDouble()) * globalMTBF);

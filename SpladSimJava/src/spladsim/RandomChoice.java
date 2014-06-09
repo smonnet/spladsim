@@ -21,6 +21,7 @@ public class RandomChoice implements PlacementPolicy {
 		while(selectionRange[ind].dataStore.containsKey(dataUID)) {
 			ind = GlobalKnowledge.rand.nextInt(GlobalKnowledge.config.selectionRange);
 		}
+		Msg.info(""+selectionRange[ind].uid);
 		return selectionRange[ind].uid;
 	}
 }
