@@ -1,0 +1,64 @@
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid.dtd">
+<platform version="3">
+	<AS id="main" routing="Full">
+		<peer id="p1" power="1.5Gf" bw_in="10.0MBps" bw_out="1.0MBps"
+			lat="500us"  />
+		<peer id="p2" power="1.5Gf" bw_in="10.0MBps" bw_out="1.0MBps"
+			lat="500us" />
+		<peer id="p3" power="1.5Gf" bw_in="10.0MBps" bw_out="1.0MBps"
+			lat="500us" />
+		<peer id="p4" power="1.5Gf" bw_in="10.0MBps" bw_out="1.0MBps"
+			lat="500us" />
+		<peer id="p5" power="1.5Gf" bw_in="10.0MBps" bw_out="1.0MBps"
+			lat="500us" />
+		<peer id="p6" power="1.5Gf" bw_in="10.0MBps" bw_out="1.0MBps"
+			lat="500us" />
+			
+		<link id="BackBone" bandwidth="100000" />
+		
+		<ASroute src="p1" dst="p2"
+		gw_src="router_p1" gw_dst="router_p2">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		<ASroute src="p1" dst="p3"
+		gw_src="router_p1" gw_dst="router_p3">
+		<link_ctn id="BackBone"/>
+		</ASroute>	
+		<ASroute src="p1" dst="p4"
+		gw_src="router_p1" gw_dst="router_p4">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		<ASroute src="p1" dst="p5"
+		gw_src="router_p1" gw_dst="router_p5">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		<ASroute src="p3" dst="p2"
+		gw_src="router_p3" gw_dst="router_p2">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		<ASroute src="p4" dst="p2"
+		gw_src="router_p4" gw_dst="router_p2">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		<ASroute src="p5" dst="p2"
+		gw_src="router_p5" gw_dst="router_p2">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		<ASroute src="p4" dst="p3"
+		gw_src="router_p4" gw_dst="router_p3">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		<ASroute src="p3" dst="p5"
+		gw_src="router_p3" gw_dst="router_p5">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		<ASroute src="p4" dst="p5"
+		gw_src="router_p4" gw_dst="router_p5">
+		<link_ctn id="BackBone"/>
+		</ASroute>
+		
+		
+			   
+	</AS>
+</platform>
